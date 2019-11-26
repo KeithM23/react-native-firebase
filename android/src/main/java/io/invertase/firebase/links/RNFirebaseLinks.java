@@ -140,8 +140,8 @@ public class RNFirebaseLinks extends ReactContextBaseJavaModule implements Activ
         public void onSuccess(PendingDynamicLinkData pendingDynamicLinkData) {
           if (pendingDynamicLinkData != null
             && !isInvitation(pendingDynamicLinkData)) {
-            String link = pendingDynamicLinkData.getLink().toString();
-            Utils.sendEvent(getReactApplicationContext(), "links_link_received", link);
+            mInitialLink = pendingDynamicLinkData.getLink().toString();
+            Utils.sendEvent(getReactApplicationContext(), "links_link_received", mInitialLink);
           }
         }
       });
